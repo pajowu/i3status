@@ -148,7 +148,7 @@ void print_cpu_usage(yajl_gen json_gen, char *buffer, const char *format, const 
         }
 
         if (BEGINS_WITH(walk + 1, "usage")) {
-            outwalk += sprintf(outwalk, "%d%s", diff_usage, pct_mark);
+            outwalk += sprintf(outwalk, "%02d%s", diff_usage, pct_mark);
             walk += strlen("usage");
         }
 #if defined(LINUX)
