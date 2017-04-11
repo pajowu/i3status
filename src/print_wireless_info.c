@@ -497,6 +497,9 @@ void print_wireless_info(yajl_gen json_gen, char *buffer, const char *interface,
 
         if (BEGINS_WITH(walk + 1, "quality")) {
             if (info.flags & WIRELESS_INFO_FLAG_HAS_QUALITY) {
+                if (info.quality_max)
+                    outwalk += sprintf(outwalk, "%d%s", PERCENT_VALUE(info.quality, info.quality_max), pct_mark);
+                else
                     outwalk += sprintf(outwalk, "%d", info.quality);
             } else {
                 *(outwalk++) = '?';
