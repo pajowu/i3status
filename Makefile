@@ -115,7 +115,6 @@ install:
 	# Allow network configuration for getting the link speed
 	(which setcap && setcap cap_net_admin=ep $(DESTDIR)$(PREFIX)/bin/i3status) || true
 	install -m 644 i3status.conf $(DESTDIR)$(SYSCONFDIR)/i3status.conf
-	install -m 644 man/i3status.1 $(DESTDIR)$(MANPREFIX)/share/man/man1
 
 release:
 	[ -f i3status-${VERSION} ] || rm -rf i3status-${VERSION}
